@@ -47,7 +47,8 @@ if (empty($user)||empty($password)||empty($nom)||empty($correo)||empty($gen)||em
 
 
 }else{
-   echo "llenar todos los datos";
+  
+   echo '<p class="si">llenar todos los datos</p>';
 }
 
 

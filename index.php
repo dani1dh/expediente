@@ -47,7 +47,7 @@ $user_name = $_SESSION['user_h'];
 			cursor: pointer;
 		}
 		.btn1{
-			margin-left: 50vw;
+			margin-left: 45vw;
 		}
 	</style>
 </head>
@@ -62,6 +62,7 @@ $user_name = $_SESSION['user_h'];
 		
 			<?php if (isset($_SESSION['id_p'])) { 
 $padre_id = $_SESSION['id_p'];
+$tipo = $_SESSION['id_tipo'];
 		?>
  <div class="container">
  	<div class="row">
@@ -77,17 +78,23 @@ while($proyecto = mysqli_fetch_assoc($padres)){
 	
       ?>
       <div class="card" style="width: 450px; ">
-  <img src="img/<?php echo $proyecto['archivo']; ?>" alt="perfil" class="card-img-top" height="430px">
+  <img src="img/<?php echo $proyecto['archivo']; ?>" alt="perfil" class="card-img-top" height="380px">
   <div class="card-body">
     <p class="card-text"><b>Nombre:</b> <?php echo $proyecto['nombre_p']; ?></p>
     <p class="card-text"><b>Nickname:</b>  <?php echo $proyecto['user_p']; ?></p>
     <p class="card-text"><b>Contraseña:</b> <?php echo $proyecto['password_p']; ?></p>
     <p class="card-text"><b>Correo:</b> <?php echo $proyecto['correo']; ?></p>
     <p class="card-text"><b>Cuenta:</b>  <?php if ($proyecto['status'] == 1) {
-			  	echo "activa";
+			  	echo "Activa";
+			  }else{
+			  	echo "Inactiva";
 			  } ?></p>
 	<p class="card-text"><b>Genero:</b> <?php echo $proyecto['nombre']; ?></p>
     <p class="card-text"><b>Tipo:</b> <?php echo $proyecto['tipo']; ?></p>
+
+    <?php if ($tipo == 2) { ?>
+    	<button type="button" class="btn btn-primary" onclick="mod(<?php echo $proyecto['id_p'];?>)">Modificar</button>
+  <?php  } ?>
 
   </div>
 </div>
@@ -95,7 +102,8 @@ while($proyecto = mysqli_fetch_assoc($padres)){
 
  		</div>
  	</div>
- </div>
+ </div><br>
+
 <?php } } elseif (isset($_SESSION['id_h'])) { 
 $user_id = $_SESSION['id_h'];
 	?>

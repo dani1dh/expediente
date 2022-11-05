@@ -30,7 +30,7 @@
 			cursor: pointer;
 		}
 		.btn1{
-			margin-left: 50vw;
+			margin-left: 45vw;
 		}
 	</style>
 </head>

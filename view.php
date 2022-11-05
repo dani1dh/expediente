@@ -1,3 +1,8 @@
+<?php 
+session_start();
+require("conexion.php");
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,14 +84,22 @@
          <input type="text" id="correo" value="<?php echo $pa['correo']?>" class="form-control" >
     </div>
      <div class="mb-3">
+    <?php 
 
+$tipo = $_SESSION['id_tipo'];
+
+    if ($tipo == 1) {
+        ?>
  <label for="status" class="form-label">Status:
          </label>
     <select id="status" class="form-control">
 
-    
+
+        
     <option value="<?php echo $pa['status']?>"><?php if ($pa['status'] == 1) {
         echo "ACTIVA";
+    }else{
+        echo "Inactiva";
     } ?></option>
       <option >---------------</option>
       <?php $uno = 1; $cero = 0; ?>
@@ -95,7 +108,17 @@
               </select>
     
     </div>
+ <?php    }else{ ?>
 
+         <label for="status" class="form-label">Correo:
+         </label>
+         <input type="text" id="status" value="<?php if ($pa['status'] == 1) {
+        echo "ACTIVA";
+    }else{
+        echo "Inactiva";
+    } ?>" class="form-control" readonly>
+
+  <?php  } ?>
 
 
      <div class="mb-3">
@@ -119,6 +142,8 @@ $genero = mysqli_query($con, "SELECT * FROM generos") or die('query failed');
 
     </div>
 
+<?php  if ($tipo == 1) {
+         ?>
     <div class="mb-3">
           <?php 
 
@@ -141,8 +166,15 @@ $tipo = mysqli_query($con, "SELECT * FROM user_tipo") or die('query failed');
 
     </div>
 
+<?php }else{  ?>
 
-    <div class="mb-3">
+         <label for="id_tipo" class="form-label">Tipo de cuenta:</label>
+        
+         <input type="hidden"  id="id_tipo" value="<?php echo $pa['id_tipo']?>"class="form-control" readonly>
+          <input type="text"   value="<?php echo $pa['tipo']?>"class="form-control" readonly>
+
+<?php } ?>
+    <div class="mb-3"><br>
          <label for="archivoId" class="form-label">Imagen:</label>
         
          <input type="file"  id="archivoId" value="<?php echo $pa['archivo']?>  class="form-control">
@@ -274,6 +306,8 @@ $padre = mysqli_query($con, "SELECT * FROM padres where genero = '1' and id_tipo
     
     <option value="<?php echo $si['status']?>"><?php if ($si['status'] == 1) {
         echo "ACTIVA";
+    }else{
+        echo "INACTIVA";
     } ?></option>
       <option >---------------</option>
       <?php $uno = 1; $cero = 0; ?>

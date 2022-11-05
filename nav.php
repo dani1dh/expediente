@@ -34,6 +34,9 @@
           </ul>
         </li>
          <li class="nav-item">
+          <a class="nav-link" onclick="doc()">Documentos</a>
+        </li>
+         <li class="nav-item">
            <a class="btn1 btn btn-danger nav-link" onclick="logout()">Cerrar sesion</a>
 
         </li>
@@ -66,7 +69,7 @@
           <a class="nav-link " aria-current="page" onclick="perfil()">Usuario: <?php  echo $user_name ; ?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" onclick="user()">Subir documento</a>
+          <a class="nav-link" onclick="reg_doc()">Subir documento</a>
         </li>
          <li class="nav-item">
            <a class="btn1 btn btn-danger nav-link" onclick="logout()">Cerrar sesion</a>
@@ -101,7 +104,10 @@
           <a class="nav-link " aria-current="page" onclick="perfil()">Usuario: <?php  echo $padre_name; ?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" onclick="user()">Subir documento</a>
+          <a class="nav-link" onclick="reg_doc()" >Subir documento</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick="son()">Hijos</a>
         </li>
          <li class="nav-item">
            <a class="btn1 btn btn-danger nav-link" onclick="logout()">Cerrar sesion</a>

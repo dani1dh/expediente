@@ -292,3 +292,107 @@ function padres() {
 		$('#respuesta1').html(res);
 	})
 }
+
+function doc() {
+	
+
+	$.ajax({
+		url: 'view_doc.php', //Hacia donde van a enviar los valores
+		
+	})
+
+	.done(function(res){ //cuando se resive datos envia una respuest
+		$('#respuesta1').html(res);
+	})
+}
+
+function reg_doc() {
+	
+
+	$.ajax({
+		url: 'registro_doc.php',
+		
+	})
+
+	.done(function(res){ 
+		$('#respuesta1').html(res);
+	})
+}
+
+function son() {
+	
+
+	$.ajax({
+		url: 'sons.php',
+		
+	})
+
+	.done(function(res){ 
+		$('#respuesta1').html(res);
+	})
+}
+
+function selec() {
+	var id =document.getElementById('tipo').value;
+	var datosForm = new FormData;
+ 	datosForm.append("id",id);
+
+	$.ajax({
+		type:'POST',
+		cache:false,
+		contentType:false,
+		processData:false,
+		data: datosForm,
+		url: 'documentos.php', //Hacia donde van a enviar los valores
+		
+	})
+
+	.done(function(res){ //cuando se resive datos envia una respuest
+		$('#respuesta2').html(res);
+	})
+}
+
+function in_p() {
+	var id =document.getElementById('id').value;
+	var id_p =document.getElementById('id_p').value;
+	var archivoId = $("#archivoId").prop('files')[0];
+	var datosForm = new FormData;
+ 	datosForm.append("id",id);
+ 	datosForm.append("id_p",id_p);
+    datosForm.append("archivoId",archivoId);
+	$.ajax({
+		type:'POST',
+		cache:false,
+		contentType:false,
+		processData:false,
+		data: datosForm,
+		url: 'insertar_doc.php', //Hacia donde van a enviar los valores
+		
+	})
+
+	.done(function(res){ //cuando se resive datos envia una respuest
+		$('#respuesta2').html(res);
+	})
+}
+
+function in_h() {
+	var id_h =document.getElementById('id_h').value;
+	var archivoId = $("#archivoId").prop('files')[0];
+	var datosForm = new FormData;
+ 	datosForm.append("id_h",id_h);
+ 	
+    datosForm.append("archivoId",archivoId);
+	$.ajax({
+		type:'POST',
+		cache:false,
+		contentType:false,
+		processData:false,
+		data: datosForm,
+		url: 'insertar_doc.php', //Hacia donde van a enviar los valores
+		
+	})
+
+	.done(function(res){ //cuando se resive datos envia una respuest
+		$('#respuesta2').html(res);
+	})
+}

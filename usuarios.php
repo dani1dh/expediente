@@ -29,7 +29,7 @@
 			cursor: pointer;
 		}
 		.btn1{
-			margin-left: 50vw;
+			margin-left: 45vw;
 		}
 	</style>
 </head>
@@ -71,9 +71,9 @@ while($proyecto = mysqli_fetch_assoc($select_product)){
 			<td><?php echo $proyecto['password_p']; ?></td>
 			<td><?php echo $proyecto['correo']; ?></td>
 			<td><?php if ($proyecto['status'] == 1) {
-			  	echo "activa";
+			  	echo "Activa";
 			  }else{
-			  	echo "inactiva";
+			  	echo "Inactiva";
 			  } ?></td>
 			<td><?php echo $proyecto['nombre']; ?></td>
 	        <td><a class="btn btn-danger " onclick="eliminar(<?php echo $proyecto['id_p'];?>)">Eliminar</a></td>

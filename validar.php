@@ -20,6 +20,7 @@ else{
                         if($f2 =$sql->fetch_array()){
                             $_SESSION['id_p'] = $f2['id_p'];
                             $_SESSION['user_p'] = $f2['user_p'];
+                            $_SESSION['nombre_p'] = $f2['nombre_p'];
                             $_SESSION['id_tipo'] = $f2['id_tipo'];
 
                                  if($password == $f2['password_p'] 
